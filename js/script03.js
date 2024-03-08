@@ -61,6 +61,80 @@ let isStrName = "Bill";
 
     // if(!isArrEmpty.length) console.log("Array is empty!");//Проверяем пустой массив или нет
 
-console.log(Boolean("")); //false
-console.log(Boolean(" ")); //true
-   
+// console.log(Boolean("")); //false
+// console.log(Boolean(" ")); //true
+
+//Задача. Находим в Массиве Sarah и перезаписваем на Rebecca
+// for (let item of isDearFriends) {
+//     console.log("Hi!");
+//     if (item === "sarah") {
+//         console.log("Sarah is here");
+//         console.log(isDearFriends.indexOf(item));
+//         let newGirl = isDearFriends.indexOf(item);
+//         isDearFriends[newGirl] = "Rebecca";
+
+//     }
+// }
+// console.log(isDearFriends);
+//Таже задача. Решение лучше. Находим и заменяем через splice "sarah" на "Mary"
+// for (let item of isDearFriends) {
+//     if (item === "sarah") {
+//         console.log("Hi!");
+//         isDearFriends.splice(2, 1, "Mary");
+//     }
+// }
+// console.log(isDearFriends);
+
+//Задача. Принимаем два числа как строку. Преобразуем в массив. Преобразуем в числа и
+//перемножаем.Получаем площадь
+// let isStrTwoNum = "2 5";
+// console.log(isStrTwoNum);
+// console.log(typeof isStrTwoNum);
+// let isNewNum = isStrTwoNum.split(" ");
+// console.log(typeof isNewNum);
+// console.log(Array.isArray(isNewNum));
+// console.log(isNewNum);
+
+// let newArrWithNumber = [];
+// for (let itm of isNewNum) {
+//     newArrWithNumber.push(Number(itm));
+//     // console.log(newNumber);
+//     // console.log(typeof newNumber);
+// }
+// let isSquare = newArrWithNumber[0] * newArrWithNumber[1]
+// console.log(isSquare);
+
+//Задача. Вывести в консоль фрукты и их номера
+// let isManyFruit = ["Apple", "Orange", "Pear"];
+// for (let itm of isManyFruit) {
+// console.log(itm);
+// console.log(isManyFruit.indexOf(itm));
+// console.log(`Это номер элемента: ${isManyFruit.indexOf(itm)} А вот и сам фрукт: ${itm}`);
+// }
+
+
+
+let newArrFryit = ["Orange", "Cherry", "Apple", "Pear", "Cranberries", "strawberry"];
+
+// console.log(0 % 2);//0
+// console.log(1 % 2);//1 // !!!
+// console.log(2 % 2);//0
+// console.log(3 % 2);//1
+// console.log(4 % 2);//0
+// console.log(5 % 2);//1
+
+//Находим фрукты с нечетным индексом и создаём из них новый массив
+let arrFruitOdd = [];
+let newLengthFruit;
+for(let itm of newArrFryit){
+    // console.log(newArrFryit.indexOf(itm));
+    if (newArrFryit.indexOf(itm) % 2 == 1) {
+        console.log(`${newArrFryit.indexOf(itm)} ${itm}`);
+        newLengthFruit = arrFruitOdd.push(itm);
+    };
+  
+}
+console.log(arrFruitOdd);
+console.log(newLengthFruit);//push метод возвращает длину нового массива
+
+
