@@ -114,7 +114,7 @@ let isStrName = "Bill";
 
 
 
-let newArrFryit = ["Orange", "Cherry", "Apple", "Pear", "Cranberries", "strawberry"];
+
 
 // console.log(0 % 2);//0
 // console.log(1 % 2);//1 // !!!
@@ -122,19 +122,21 @@ let newArrFryit = ["Orange", "Cherry", "Apple", "Pear", "Cranberries", "strawber
 // console.log(3 % 2);//1
 // console.log(4 % 2);//0
 // console.log(5 % 2);//1
+let newArrFryit = ["Orange", "Cherry", "Apple", "Pear", "Cranberries", "strawberry"];
 
 //Находим фрукты с нечетным индексом и создаём из них новый массив
-let arrFruitOdd = [];
-let newLengthFruit;
-for(let itm of newArrFryit){
-    // console.log(newArrFryit.indexOf(itm));
-    if (newArrFryit.indexOf(itm) % 2 == 1) {
-        console.log(`${newArrFryit.indexOf(itm)} ${itm}`);
-        newLengthFruit = arrFruitOdd.push(itm);
-    };
+// let arrFruitOdd = [];
+// let newLengthFruit;
+// for(let itm of newArrFryit){
+//     // console.log(newArrFryit.indexOf(itm));
+//     if (newArrFryit.indexOf(itm) % 2 == 1) {
+//         console.log(`${newArrFryit.indexOf(itm)} ${itm}`);
+//         newLengthFruit = arrFruitOdd.push(itm);
+//     };
   
-}
-console.log(arrFruitOdd);
-console.log(newLengthFruit);//push метод возвращает длину нового массива
+// }
+// console.log(arrFruitOdd);
+// console.log(newLengthFruit);//push метод возвращает длину нового массива
 
-
+// console.log(newArrFryit.splice(2, 1, "Sarah"));
+// console.log(newArrFryit);
