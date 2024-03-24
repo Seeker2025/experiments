@@ -264,27 +264,81 @@ let isInvertedString = "";
 
 // Модуль 2. Задача 32 / 32. Функция проверяет, есть ли в массиве array значение value,
 //  возвращая true если есть и false в противном случае.
-function includes(array, value) {
-  for (let itm of array) {
-    // console.log(itm);
-    if (itm === value) {
-      return true;
-    } 
-      //
+// function includes(array, value) {
+//   for (let itm of array) {
+//     // console.log(itm);
+//     if (itm === value) {
+//       return true;
+//     }
+//       //
+//   }
+//    return false;
+// }
+
+// console.log(includes([1, 2, 3, 4, 5], 3));
+// console.log(includes([1, 2, 3, 4, 5], 17));
+// console.log(includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Jupiter"));
+// console.log(includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Uranus"));
+// console.log(includes(["apple", "plum", "pear", "orange"], "plum"));
+// console.log(includes(["apple", "plum", "pear", "orange"], "kiwi"));
+
+
+// arguments
+// function toArgue() {
+  //У функции есть псеводомассив или итеррабельный объект, если не известно, сколько
+  // аргументов придёт в функцию. Не имеет нормальных методов
+  // Его можно перебрать циклом for или for of
+  // console.log(arguments);
+
+  // Преобразуем arguments в нормальный массив
+  // const arrNormal = Array.from(arguments);
+  // console.log(Array.isArray(arrNormal));
+  // console.log(arrNormal);
+  
+//Современный способ. Распыляем псевдомассив в нормальный массив
+//   const arrNormalModern = [...arguments];
+//   arrNormalModern.splice(0, 1, 'Apple');
+//   console.log(arrNormalModern);
+// }
+// toArgue(1, 2, 3, 4);
+// toArgue(1, 2, 3, 4);
+// !! === Boolean() Приводим значение к булю
+///!! Это двойная инверсия. Приводит к булю
+
+//Цикл for обрабатывает два массива
+// let strNames = 'Pete, Mark, Sergey, Jeff, Rebecca, Sarah';
+// let strOfNum = '0502005027, 0502005025,  0892003033, 0735004043, 0695004053, 0955004063';
+
+// let arrNames = strNames.split(',');
+// let arrNum = strOfNum.split(',');
+// console.log(arrNames);
+// console.log(arrNames.length);
+// console.log(arrNum);
+// for (let i = 0; i <= arrNames.length-1; i += 1){
+//   console.log(`Это имя ${arrNames[i]}. Это номер${arrNum[i]}`);
+// }
+
+// let strWorld = 'world is peace';
+// strWorld = strWorld.split(' ');
+// // console.log(strWorld);
+// let num = strWorld.push('Sarah');//push деструктивный метод возвращает длину массива
+// console.log(num);//4 это длина массива
+// // console.log(strWorld);
+
+// console.log(Boolean(NaN));
+// console.log(null || (2 && 3) || 4);//3
+// console.log('2' < '12');//'2' < '1' 32 < 31 true
+
+// Напишите цикл for, который выводит в консоль число от min до max,
+// но только если число кратно 5
+let min = 3;
+let max = 50;
+for (let i = min; i < max; i += 1){
+  //Приходит 0, как остаток от деления. Это и есть число кратное 5
+  if (!(i % 5)) {
+      console.log(i);
   }
-   return false;
 }
-
-console.log(includes([1, 2, 3, 4, 5], 3));
-console.log(includes([1, 2, 3, 4, 5], 17));
-console.log(includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Jupiter"));
-console.log(includes(["Earth", "Mars", "Venus", "Jupiter", "Saturn"], "Uranus"));
-console.log(includes(["apple", "plum", "pear", "orange"], "plum"));
-console.log(includes(["apple", "plum", "pear", "orange"], "kiwi"));
-
-
-
-
 
 
 
