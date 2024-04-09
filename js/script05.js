@@ -477,84 +477,84 @@ const book = {
 // atTheOldToad.updatePotionName("Dragon breath", "Polymorth");
 // console.log(atTheOldToad.potions);
 
-////// ////Модуль 3. Задача 41 / 41.
-
+////// ////Модуль 3. Задача 41 / 41. Difficult
 const atTheOldToad = {
   potions: [
     { name: "Speed potion", price: 460 },
     { name: "Dragon breath", price: 780 },
     { name: "Stone skin", price: 520 },
   ],
-  // Change code below this line
-  getPotions() {
+   getPotions() {
     return this.potions;
   },
   addPotion({ name, price }) {
-    // if (this.potions.includes({ name, price })) {
-    //   // return `Error! Potion ${newPotion} is already in your inventory!`;
-    //   // console.log('Hooray!');
-    // }
-    for (let poy of this.potions) {
-    
-      if (poy.name === name && poy.price === price) {
+      for (let poy of this.potions) {
+    // console.table(poy);
+        if (poy.name === name && poy.price === price) {
+        console.log('whoa!')  
         return `Error! Potion ${ name, price } is already in your inventory!`;
-      }
+        }
     }
-
+    // let num;
+    // num = this.potions.push({ name, price });
     this.potions.push({ name, price });
-    // console.log({ name, price });
-    // console.log(this.potions.includes({ name, price }));
+    // console.log(num);
+   
   },
   removePotion(potionName) {
-    let idx;
-    for (let poi of this.potions) {
-      // const potionIndex = this.potions.indexOf(potionName);
-      // return console.log(potionIndex);
-      // if (potionIndex === -1) {
-      //   return `Potion02 ${potionName} is not in inventory!`;
-      // }
-      // console.log(poi.name);
-      // console.log(this.potions.indexOf(potionName));
-      // console.log(this.potions.indexOf(poi));
-      // if (potionName===poi.name) {
-      //     console.log('Peace')
-      //   idx = this.potions.indexOf(poi);
-      //   console.log(idx);
-      //   break;
-      // }
-  
+    let forRemove;
+    for (let i = 0; i < this.potions.length; i += 1){
+//  console.log(this.potions[i].name);
+      if (this.potions[i].name === potionName) {
+        forRemove = i;
+        // console.log( forRemove, potionName);
+      } 
+        // console.table(this.potions);
     }
-    // console.log(Boolean(idx));
-    // if (idx||!0) console.log('Hooray!');
-    // else console.log('fail!');
-    
-  },
+
+    this.potions.splice(forRemove, 1);
+ },
   updatePotionName(oldName, newName) {
-    const potionIndex = this.potions.indexOf(oldName);
+    for (let i = 0; i < this.potions.length; i += 1) {
 
-    if (potionIndex === -1) {
-      return `Potion ${oldName} is not in inventory!`;
+      if (this.potions[i].name === oldName) {
+        // console.log('whoa!');
+        this.potions[i].name = newName;
+      }
+    
     }
-
-    this.potions.splice(potionIndex, 1, newName);
-  },
-  // Change code above this line
+  }
 };
 // atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
-// console.log(atTheOldToad.addPotion({ name: "Speed potion", price: 460 }));
+// console.log(atTheOldToad.addPotion( { name: 'Dragon breath', price: 700 }));
+// atTheOldToad.addPotion(  { name: "potion", price: 333 });
 // console.log(atTheOldToad.removePotion("Dragon breath"));
 // console.log(atTheOldToad.getPotions());
 // atTheOldToad.removePotion("Stone skin");
 
-// console.log(atTheOldToad.addPotion({ name: "Potion", price: 555 }));
+// atTheOldToad.addPotion({ name: "Speed potion", price: 460 });
+// atTheOldToad.addPotion({ name: "Spe potion", price: 888 });
 // console.log(atTheOldToad.addPotion({ name: "Speed potion", price: 460 }));
 // console.log(atTheOldToad.getPotions());
 
-const a = [{ x: 1 }, { y: 2 }, { z: 3 }];
-const b = [...a];
+// atTheOldToad.removePotion("Dragon breath")
 
-console.log(a === b);           //false
-console.log(a[0] === b[0]);     //true
+// atTheOldToad.potions.splice(1, 1);
+
+// atTheOldToad.removePotion("Stone skin");
+
+
+// atTheOldToad.updatePotionName('Stone skin', 'peace');
+
+console.table(atTheOldToad.potions);
+
+// const a = [{ x: 1 }, { y: 2 }, { z: 3 }];
+// const b = [...a];
+
+// console.log(a === b);           //false
+// console.log(a[0] === b[0]);     //true
+
+// console.log(false && true);     //false
 
 
 
