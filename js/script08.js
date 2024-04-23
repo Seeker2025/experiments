@@ -1,5 +1,5 @@
 'use strict'
-//// Function
+//// Function, Methods
 
 ////Замыкание
 // const makeSheff = function (name) {
@@ -495,29 +495,46 @@ const newArrWithFriends = [
 // if (newArrPov.length === 0) newArrPov.push(1);
 // console.log(newArrPov);
 
-const isArrNums = [1, 2, 3 ];
+//// создаём Callback
+// const isArrNums = [1, 2, 3 ];
+// function toMult(arr, toFoo) {
+//   let total = 1;
+//   for (let itm of arr) {
+//     // console.log(itm);
+//     total = toFoo(itm, total);
+//   }
+//   return total;
+// }
+// console.log(toMult(isArrNums, toFoo));
+// console.log(toMult(isArrNums, toBoo));
 
-function toMult(arr, toFoo) {
-  let total = 1;
-  for (let itm of arr) {
-    // console.log(itm);
-    total = toFoo(itm, total);
-  }
-  return total;
-}
-console.log(toMult(isArrNums, toFoo));
-console.log(toMult(isArrNums, toBoo));
+// function toFoo(a, b) {
+//   return a + b;
+// }
 
-function toFoo(a, b) {
-  return a + b;
-}
+// function toBoo(a, b) {
+//   return a * b;
+// }
 
-function toBoo(a, b) {
-  return a * b;
-}
+//// Function Arrow
+// const Bo = () => console.log('Hi!');
+// Bo();
 
+//// создаём Callback 02
+// const isArrThird = [2, 3, 4, ];
+// const toNewFoo = function (isArr, callback) {
+//   let total = 1;
+//   let newArrOfMap = isArr.map((itm, idx, arr) => {
+//   // console.log(itm);
+//   // console.log(idx);
+//     // console.log(arr);
+//     return total = callback(total, itm);
+//   })
+//   return newArrOfMap;
+// }
+// const newCallback = (a, b) => a + b;
+// const newMultback = (a, b) => a * b;
 
-
-
-
+// console.log(toNewFoo(isArrThird, newCallback));
+// console.log(toNewFoo(isArrThird, newMultback));
 
