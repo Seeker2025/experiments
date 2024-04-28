@@ -102,8 +102,68 @@ const tweets = [
 // }, {});
 // console.log(tagsStats);
 
-console.log('a');
+const students = [
+  { name: "Манго", courses: ["математика", "фізика"] },
+  { name: "Полі", courses: ["інформатика", "математика"] },
+  { name: "Ківі", courses: ["фізика", "біологія"] },
+];
+// console.log(students);
+// students.forEach((itm, idx, arr) => {
+//   console.log(itm.courses);
+//   // console.log(idx);
+// });
+// let newCourseArr = [];
+// const newObg03 = { name: "Манго", courses: ["математика", "фізика",
+//   "біологія"]
+// };
+// const newArr04 = ["інформатика", "математика", "фізика", "біологія"];
+// newCourseArr = [...newArr04, ...newObg03.courses];
+// // let a = newCourseArr.push(newArr04);
+// console.log(newArr04.length);
+// console.log(newCourseArr);
+// // console.log(a);
+// console.log(newCourseArr.length);
 
 
+////Метод flatMap разглаживаем массив
+const newStudentArr = students.map((itm, idx, arr) => {
+  // console.log(`Итерация ${idx+1}`)
+  // console.log(itm.courses);
+
+  
+});
+// console.log(newStudentArr);
+
+// const secondStudentArr = newStudentArr.map((itm, idx, arr) => {
+//   console.log(`${itm} ${idx}`);
+//   console.log(arr.indexOf(itm));
+//   if (arr.indexOf(itm) === idx) {
+//     return itm;
+//   }
+//   return 'a';
+// });
+// console.log(secondStudentArr);
+
+// const thirdStudentArr = newStudentArr.filter((itm, idx, arr) => {
+//  return arr.indexOf(itm) === idx;
+// })
+// console.log(thirdStudentArr);
+
+///// Метод findIndex() возвращает индекс элемента
+// const fouthStudentArr = newStudentArr.findIndex((itm) => itm==="фізика");
+// console.log(fouthStudentArr); // 1
+// const fifthStudentArr = newStudentArr.findIndex((itm) => itm==="стат");
+// console.log(fifthStudentArr); //-1
+
+// const fifthStudentArr = newStudentArr.findIndex((itm) => itm==="інформатика");
+// console.log(fifthStudentArr); // 2
+
+////Spread распыление
+// const newArrMath = ["математика", "фізика", "інформатика",];
+// const newArrPh = ["математика", "фізика", "біологія"];
+// // console.log(newArrMath);
+// const newArrBio = [...newArrMath, ...newArrPh];
+// console.log(newArrBio);
 
 
+// console.log('a');
