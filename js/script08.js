@@ -538,3 +538,5 @@ const newArrWithFriends = [
 // console.log(toNewFoo(isArrThird, newCallback));
 // console.log(toNewFoo(isArrThird, newMultback));
 
+
+
