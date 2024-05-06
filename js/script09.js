@@ -501,16 +501,110 @@ const getTotalBalanceByGender = (users, gender) => {
 //  }, 0);
 // console.log(s);
 
-let isArrNum = ['a', 'b', 'c'];
-let isTwo = ['s', 'w', 'q'];
+////// reduce складываем числа
+// const total = [2, 7, 3, 14, 6].reduce((previousValue, number) => {
+//   // console.log(previousValue)
+//   previousValue=previousValue + number;
+//   return previousValue;
+// }, 0);
+// console.log(total); // 32
 
-const newArrCreate = isArrNum.reduce((accum, itm) => {
+// const temps = [14, -4, 25, 8, 11];
+// const numRour = [...temps];
+// console.log(numRour === temps);
 
-   return [...accum, ...itm];
-   
-}, []);
+const tweets02 = [
+  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  { id: "001", likes: 2, tags: ["html", "css"] },
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", likes: 8, tags: ["css", "react"] },
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+];
+const getTags = tweets =>
+  tweets.reduce((allTags, tweet) => {
+    allTags.push(...tweet.tags);
+    return allTags;
+  }, []);
+// const tags = getTags(tweets02);
 
-console.log(Array.isArray(newArrCreate));
-console.log(newArrCreate);
+////  ['js', 'nodejs', 'html', 'css', 'html', 'js', 'nodejs', 'css', 'react',
+////  'js', 'nodejs', 'react']
+
+const tags = ['js', 'css', 'js'];
+// console.log(tags);
+
+// const num02 = [1, 2, 4,];
+
+// const toMeth = num02.reduce((accum, item) => {
+//    accum = accum + item;
+//   return accum;
+// }, 0);
+// console.log(toMeth);
+
+// let sum = (a, b) => a + b;
+// console.log(sum(1, 2));
+
+// const getTagStats = (acc, tag) => {
+//   if (!acc.hasOwnProperty(tag)) {
+//     acc[tag] = 0;
+//   }
+
+//   acc[tag] += 1;
+
+//   return acc;
+// };
+
+// Початкове значення акумулятора - це порожній об'єкт {}
+const countTags = tags => tags.reduce((acc, tag) => {
+  if (!acc.hasOwnProperty(tag)) {
+    acc[tag] = 0;
+  }
+
+  acc[tag] += 1;
+
+  return acc;
+}, {});
+
+const tagCount = countTags(tags);
+// console.log(tagCount);
+
+
+
+
+
+
+
+// let objTag = {};
+// const arr = ['java', 'js', 'js', ];
+// for (let itm of arr) {
+//   console.log(itm);
+//   if (!objTag.hasOwnProperty(itm)) objTag[itm] = 1;
+//   else objTag[itm] = objTag[itm] + 1;
+//   // console.log(arr.hasOwnProperty(itm));
+// }
+// objTag['html']= 0;
+// objTag['html'] += 1; // 1
+// objTag['html'] += 1; // 2
+
+
+// console.log(objTag.hasOwnProperty(tag));
+// if (!objTag.hasOwnProperty(tag)) objTag[tag] = 0;
+// else objTag[tag] = objTag[tag] + 1;
+// console.log(objTag);
+
   
+
+const tags02 = ['js', ];
+console.log(tags02);
+const countTags02 = tags => tags.reduce((acc, tag) => {
+  if (!acc.hasOwnProperty(tag)) {
+    acc[tag] = 0;
+  }
+
+  acc[tag] += 1;
+
+  return acc;
+}, {});
+console.log(countTags02(tags02));
+
 
