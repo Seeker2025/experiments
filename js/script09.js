@@ -171,7 +171,7 @@ const students = [
 // const newObj = {
 //   name: 'Masha',
 //   girl: 'Sarah',
-//   boy: 'Jeff',
+//   boy:  'Jeff',
 // };
 // for (let key in newObj) {
 //   let a=newObj.hasOwnProperty(key);
@@ -532,27 +532,6 @@ const getTags = tweets =>
 
 const tags = ['js', 'css', 'js'];
 // console.log(tags);
-
-// const num02 = [1, 2, 4,];
-
-// const toMeth = num02.reduce((accum, item) => {
-//    accum = accum + item;
-//   return accum;
-// }, 0);
-// console.log(toMeth);
-
-// let sum = (a, b) => a + b;
-// console.log(sum(1, 2));
-
-// const getTagStats = (acc, tag) => {
-//   if (!acc.hasOwnProperty(tag)) {
-//     acc[tag] = 0;
-//   }
-
-//   acc[tag] += 1;
-
-//   return acc;
-// };
 
 // Початкове значення акумулятора - це порожній об'єкт {}
 const countTags = tags => tags.reduce((acc, tag) => {
