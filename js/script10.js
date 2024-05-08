@@ -53,22 +53,18 @@ const stats = arrJS.reduce((acc, tag) =>{
 // console.log(Boolean(newObj[b]));  // underfined
 
 
-const arrCSS = ['CSS', 'html', 'CSS', 'CSS', 'React', 'html'];
-// console.log(arrCSS);
+const arrPeace = [ 'CSS', 'html', 'CSS', 'React', 'html', 'CSS'];
+console.log(arrPeace);
 
-const arrVenus = arrCSS.reduce((accum, itm) => {
-  // console.log(itm);
+const arrNewVenus = arrPeace.reduce((accum, itm) => {
   console.log(accum);
-  if (accum[itm]) {
-    accum[itm] += 1
-    return accum
-
+  return {
+    ...accum,
+    [itm]: accum[itm] ? accum[itm]+= 1 : 1,
   }
   
-  accum[itm] = 1;
-  return accum;
-}, {}
+}, {})
 
-);
+console.log(arrNewVenus);
 
-console.log(arrVenus);
+
