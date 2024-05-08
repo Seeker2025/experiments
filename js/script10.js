@@ -16,15 +16,16 @@ const newMetArr = tweets.flatMap(t => t.tags);
 
 const arrJS = ['js', 'js', 'html', 'css', 'nodejs',];
 const stats = arrJS.reduce((acc, tag) =>{
-  console.log(acc);
+  // console.log(acc);
   return {
      ...acc,
     [tag]: acc[tag] ? acc[tag] + 1 : 1,
   }
+   
 },
     {},
 );
-console.log(stats); ////{js: 2, html: 1, css: 1, nodejs: 1}
+// console.log(stats); ////{js: 2, html: 1, css: 1, nodejs: 1}
 
 // const isObj01 = {};
 // const tag = 'js';
@@ -52,7 +53,22 @@ console.log(stats); ////{js: 2, html: 1, css: 1, nodejs: 1}
 // console.log(Boolean(newObj[b]));  // underfined
 
 
+const arrCSS = ['CSS', 'html', 'CSS', 'CSS', 'React', 'html'];
+// console.log(arrCSS);
 
+const arrVenus = arrCSS.reduce((accum, itm) => {
+  // console.log(itm);
+  console.log(accum);
+  if (accum[itm]) {
+    accum[itm] += 1
+    return accum
 
+  }
+  
+  accum[itm] = 1;
+  return accum;
+}, {}
 
+);
 
+console.log(arrVenus);
