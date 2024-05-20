@@ -157,10 +157,64 @@ const user02 = {
   },
 };
 //////Здесь вызов метода в контексте объекта user02. Видим объект в this
-user02.showTag();
+// user02.showTag();
 const outerShowTag = user02.showTag;
 ////// Здесь потеря контекста. Видим красную ошибку
-outerShowTag();
+// outerShowTag();
+
+class forStudy {
+  constructor(myName, people, price) {
+    this.myName = myName;
+    this.people = people;
+    this.price = price;
+   }
+}
+
+const oneRef = new forStudy('Pete', 'manager', '2K');
+// console.log(oneRef);
+const twoRef = new forStudy('Sarah', 'director', '5K');
+// console.log(twoRef);
+const threeRef = new forStudy('Jeff', 'owner', '10K');
+// console.log(threeRef);
+
+class Storage{
+  constructor([...item]){
+    this.item = [...item];
+  }
+  getItems() {
+    return this.item;
+  }
+  addItem(newItem) {
+    this.item.push(newItem);
+  }
+  removeItem(itemToRemove) {
+
+    if (!(this.item.findIndex===-1)) {
+      this.item.splice((this.item.findIndex((itm, idx) => itm === itemToRemove)), 1);
+    }
+  }
+}
+const newSomeArr = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(newSomeArr);
+// console.log(newSomeArr.getItems());
+newSomeArr.addItem('wwwww');
+console.log(newSomeArr.item);
+newSomeArr.removeItem("Nanitoids");
+console.log(newSomeArr.item);
+
+// const newArr = ["Nanitoids", "Prolonger", "Antigravitator"];
+// const oneLine = newArr.findIndex((itm, idx) =>itm === "Prolonger");
+// console.log(oneLine);
+
+
+
+// Change code above this line
+// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem("Droid");
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem("Prolonger");
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
  
 
 
