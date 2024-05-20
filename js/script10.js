@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 //// Methods
 
 const tweets = [
@@ -52,21 +52,132 @@ const stats = arrJS.reduce((acc, tag) =>{
 // ////Если такого ключа в объекте нет, то возвращается undefined
 // console.log(Boolean(newObj[b]));  // underfined
 
+const user = {
+  name: 'Mango',
+  location: {
+    city: 'Lviv',
+  },
+};
+if (user && user.location && user.location.city) {
+  // console.log(user.location.city);
+}
+////Проверка необязательного свойства. Если такого свойства нет,
+////то вернёт undefined. Обращение к свойству которого нет выбьет
+////красную ошибку
+if (user?.location?.city) {
+  // console.log(user.location.city);
+}
+// console.log(user?.location?.city);
 
-const arrPeace = ['CSS', 'React', 'CSS', 'html', 'React',];
-console.log(arrPeace);
+////Вызываем функцию и смотрим this в глобальном контексте.
+//// Получаем undefined
+function toFun() {
+  console.log(this);
+}
+// toFun(); ////undefined.
 
-const arrVenus = arrPeace.reduce((accum, itm) => {
-  console.log(accum);
+ const newObjOneMore = {
+  name: 'Masha',
+  girl: 'Sarah',
+  boy:  'Jeff',
+};
+//////Добавляем функцию в объект и вызываем в контексте этого объекта. 
+newObjOneMore.funNew = toFun;
+// newObjOneMore.funNew();
+// const toArrowFun = () => {
+//   console.log(this);
+// }
+// toArrowFun();
+//////Добавляем функцию в объект и вызываем в контексте этого объекта.
+// newObjOneMore.toArrow = toArrowFun;
+// newObjOneMore.toArrow();
+
+const isArrTml = ['Sarah', 'Pete', 'Rebecca', 'Pete', 'Sarah'];
+const newRedArr = isArrTml.reduce((accum, itm) => {
+  // console.log(itm);
+  // console.log(accum);
   return {
     ...accum,
-    [itm]: accum[itm] ? accum[itm] += 1 : 1
+    [itm]: accum[itm] ? accum[itm] += 1 : 1,
   }
-},
-  {}
-)
+ }, {})
+// console.log(newRedArr);
+ 
+const animal = {
+  legs: 4,
+};
+const dog = Object.create(animal);
+dog.name = 'Mango';
+// console.log(dog);
+//////Является ли объект animal прототипом для dog
+// console.log(animal.isPrototypeOf(dog));  ///// true
+/////Если в dog собственное свойство name
+// console.log(dog.hasOwnProperty('name')); ///// true
+// console.log(dog.name); //// Mango
+/////Если в dog собственное свойство legs
+// console.log(dog.hasOwnProperty('legs')); ///// false
+// console.log(dog.legs); //// 4
 
-console.log(arrVenus);
+
+////// Методы функций
+const changeColor = function (color) {
+  console.log('changeColor -> this', this);
+  this.color = color;
+};
+const hat = {
+  color: 'back',
+};
+const sweater = {
+  color: 'green',
+};
+//////Вызываем функцию changeColor  в контексте объекта hat
+// changeColor.call(hat, 'orange');
+// console.log(hat);
+//////Вызываем функцию changeColor  в контексте объекта sweater
+// changeColor.call(sweater, 'blue');
+// console.log(sweater);
+
+const changeColor02 = function (color) {
+  console.log('changeColor -> this', this);
+  this.color = color;
+};
+//////bind делает копию функции с привязанным контекстом объекта
+const changeHatColor = changeColor.bind(hat);
+const changeSweaterColor = changeColor.bind(sweater);
+// changeHatColor('yellow');
+// console.log(hat);
+// changeSweaterColor('red');
+// console.log(sweater);
+
+const user02 = {
+  tag: 'Mango',
+  showTag() {
+    console.log('showTag -> this', this);
+    console.log('showTag -> this.tag', this.tag);
+  },
+};
+//////Здесь вызов метода в контексте объекта user02. Видим объект в this
+user02.showTag();
+const outerShowTag = user02.showTag;
+////// Здесь потеря контекста. Видим красную ошибку
+outerShowTag();
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
