@@ -177,44 +177,108 @@ const twoRef = new forStudy('Sarah', 'director', '5K');
 const threeRef = new forStudy('Jeff', 'owner', '10K');
 // console.log(threeRef);
 
+///// MОДУЛЬ 5. Задача 10/20
+
+//Напиши класс Storage, который будет создавать объекты для управления складом товаров. Класс ожидает только один аргумент - начальный массив товаров, который записывается на создаваемый объект в свойство items.
+//Объяви следующие методы класса:
+//getItems() - возвращает массив текущих товаров в свойстве items объекта который
+//вызывает этот метод.
+//addItem(newItem) - принимает новый товар newItem и добавляет его в массив товаров в
+//свойстве items объекта который вызывает этот метод.
+//removeItem(itemToRemove) - принимает товар itemToRemove и удаляет его из массива
+//товаров в свойстве items объекта который вызывает этот метод.
+//Под комментарием мы добавили инициализацию экземпляра и вызовы методов в той
+//последовательности, в которой твой код будут проверять тесты.Пожалуйста ничего
+//там не меняй.
 class Storage{
-  constructor([...item]){
-    this.item = [...item];
+  constructor([...items]){
+    this.items = [...items];
   }
   getItems() {
-    return this.item;
+    return this.items;
   }
   addItem(newItem) {
-    this.item.push(newItem);
+    this.items.push(newItem);
   }
   removeItem(itemToRemove) {
-
-    if (!(this.item.findIndex===-1)) {
-      this.item.splice((this.item.findIndex((itm, idx) => itm === itemToRemove)), 1);
+    if (this.items.findIndex!==-1) {
+      this.items.splice((this.items.findIndex((itm, idx) => itm === itemToRemove)), 1);
     }
   }
 }
-const newSomeArr = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-// console.log(newSomeArr);
-// console.log(newSomeArr.getItems());
-newSomeArr.addItem('wwwww');
-console.log(newSomeArr.item);
-newSomeArr.removeItem("Nanitoids");
-console.log(newSomeArr.item);
+const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(storage.getItems()); //// ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem("Droid");
+// console.log(storage.getItems()); //// ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem("Prolonger");
+// console.log(storage.getItems()); //// ["Nanitoids", "Antigravitator", "Droid"]
 
-// const newArr = ["Nanitoids", "Prolonger", "Antigravitator"];
-// const oneLine = newArr.findIndex((itm, idx) =>itm === "Prolonger");
-// console.log(oneLine);
+///// MОДУЛЬ 5. Задача 11/20
+////Напиши класс StringBuilder, который принимает один параметр
+////initialValue - произвольную строку, которая записывается на создаваемый объект
+////в свойство value.
+////Объяви следующие методы класса:
+////getValue() - возвращает текущее значение свойства value.
+////padEnd(str) - получает параметр str (строку) и добавляет её в конец значения
+////свойства value объекта который вызывает этот метод.
+////padStart(str) - получает параметр str (строку) и добавляет её в начало значения
+////свойства value объекта который вызывает этот метод.
+////padBoth(str) - получает параметр str (строку) и добавляет её в начало и в конец
+////значения свойства value объекта который вызывает этот метод.
+class StringBuilder {
+  constructor(value) {
+    this.value = value;
+  }
+  getValue() {
+    return this.value;
+  }
+  padEnd(str) {
+    this.value += str;
+  }
+  padStart(str) {
+   this.value = str + this.value;
+  }
+  padBoth(str) {
+    this.value = str + this.value + str;
+  }
+}
+const builder = new StringBuilder(".");
+// console.log(builder.getValue()); ////// "."
+builder.padStart("^");
+// console.log(builder.getValue()); ////// "^."
+builder.padEnd("^");
+// console.log(builder.getValue()); ////// "^.^"
+builder.padBoth("=");
+// console.log(builder.getValue()); ////// "=^.^="
+
+const arrNum = [2, 3, 4];
+let num = 0;
+for (let i = 0; i < 3; i += 1){
+  // console.log(arrNum[i]);
+  // console.log(i);
+  num += arrNum[i];
+}
+console.log(num);
 
 
 
-// Change code above this line
-// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-// storage.addItem("Droid");
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-// storage.removeItem("Prolonger");
-// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
