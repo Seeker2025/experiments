@@ -565,23 +565,18 @@ const tagCount = countTags(tags);
 // objTag['html'] += 1; // 1
 // objTag['html'] += 1; // 2
 
-
 // console.log(objTag.hasOwnProperty(tag));
 // if (!objTag.hasOwnProperty(tag)) objTag[tag] = 0;
 // else objTag[tag] = objTag[tag] + 1;
 // console.log(objTag);
 
-  
-
-const tags02 = ['js', ];
+const tags02 = ['js', 'CSS', 'js'];
 console.log(tags02);
 const countTags02 = tags => tags.reduce((acc, tag) => {
   if (!acc.hasOwnProperty(tag)) {
     acc[tag] = 0;
   }
-
   acc[tag] += 1;
-
   return acc;
 }, {});
 console.log(countTags02(tags02));

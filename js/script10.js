@@ -251,16 +251,51 @@ builder.padEnd("^");
 builder.padBoth("=");
 // console.log(builder.getValue()); ////// "=^.^="
 
-const arrNum = [2, 3, 4];
-let num = 0;
-for (let i = 0; i < 3; i += 1){
-  // console.log(arrNum[i]);
-  // console.log(i);
-  num += arrNum[i];
+//////exp
+// const arrNum = [2, 3, 4];
+// let num = 0;
+// for (let i = 0; i < 3; i += 1){
+//   // console.log(arrNum[i]);
+//   // console.log(i);
+//   num += arrNum[i];
+// }
+// console.log(num);
+// const na = NaN+2;
+// console.log(na);
+
+///// MОДУЛЬ 5. Задача 13/20
+class Storage02 {
+  constructor(items) {
+    this.items = items;
+  }
+
+  getItems() {
+    return this.items;
+  }
+
+  addItem(newItem) {
+    this.items.push(newItem);
+  }
+
+  removeItem(itemToRemove) {
+    this.items = this.items.filter(item => item !== itemToRemove);
+  }
 }
-console.log(num);
 
 
+const storage02 = new Storage02(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(storage02.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage02.addItem("Droid");
+// console.log(storage02.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage02.removeItem("Prolonger");
+// console.log(storage02.getItems()); // ["Нанитоиды", "Антигравитатор", "Droid"]
+
+//////Используем filter для удаления элемента из массива
+// const arr = ["Nanitoids", "Prolonger", "Antigravitator", "Droid"];
+// console.log(arr);
+// const value = "Prolonger";
+// const myMood = arr.filter(item => value !== item);
+// console.log(myMood);
 
 
 
