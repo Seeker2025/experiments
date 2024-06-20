@@ -32,6 +32,30 @@ const newRedis = arrTech.reduce((accum, itm) => {
 }, {});
 console.log(newRedis);
 
+//////Находим индекс
+console.log(arrTech.indexOf('CSS'));
+console.log(arrTech.findIndex((itm) => itm === 'React'));
+
+const a = 1;
+const isObj = { name: 'brilliant', price: 300, qtv: 10, a};
+console.log(isObj.hasOwnProperty('name'));////true
+console.log(isObj.na); ////undefined
+
+const objNum = arrTech.reduce((accum, itm) => {
+    return {
+        ...accum,
+        [itm]:accum[itm]?accum[itm]+=1:1
+        
+    }
+    
+}, {});
+console.log(objNum);
+console.log('a');
+
+
+
+
+
  
 
 
