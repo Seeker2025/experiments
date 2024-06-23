@@ -162,21 +162,54 @@ const mango = new Warrior('mango', 1000, 'alebarda');
 // console.log(mango);
 
 // console.log(mango);
-console.dir(Hero);
-console.dir(Warrior);
-console.dir(Mag);
-console.dir(June);
+//console.dir(Hero);
+//console.dir(Warrior);
+//console.dir(Mag);
+//console.dir(June);
 
 const newMag = new  Mag('flash', 75, 'labris', 'Sarah');
-console.log(newMag);
+////console.log(newMag);
 
-console.log(this);
+//console.log(this);
 
-console.log(Boolean('a'));  //true
-console.log(Boolean(2));    //true
-console.log(!!'a');         //true
-console.log(!!2);           //true
+//console.log(Boolean('a'));  //true
+//console.log(Boolean(2));    //true
+//console.log(!!'a');         //true
+//console.log(!!2);           //true
 
+const a = 5; // 00000000000000000000000000000101
+const b = -3; // 11111111111111111111111111111101
 
+// console.log(~a); // 11111111111111111111111111111010
+// Expected output: -6
+
+// console.log(~b); // 00000000000000000000000000000010
+// Expected output: 2
+
+//console.log(!!5);     ////true
+//console.log(!'a');    ////false
+
+class newHome{
+    static newPass = 'peace';
+    constructor(boy, girl) {
+        this.boy = boy;
+        this.girl = girl;
+    }
+    get getBoy() {
+        return this.boy;
+    }
+    set tBoy(newName) {
+        this.boy = newName;
+        
+    }
+}
+const exam = new newHome('Pete', 'Sarah');
+
+console.log(exam);
+
+exam.setBoy = 'Steve';
+console.log(exam.getBoy);
+console.dir(newHome);
+console.log(exam.newPassy);
 
 
