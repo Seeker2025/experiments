@@ -191,7 +191,7 @@ const b = -3; // 11111111111111111111111111111101
 
 class newHome{
     static newPass = 'peace';
-    constructor(boy, girl) {
+    constructor({ boy, girl }) {
         this.boy = boy;
         this.girl = girl;
     }
@@ -203,13 +203,154 @@ class newHome{
         
     }
 }
-const exam = new newHome('Pete', 'Sarah');
+//////  передаём объект параметров
+const exam = new newHome({ boy: 'Pete', girl: 'Sarah'});
 
-console.log(exam);
+// console.log(exam);
 
-exam.setBoy = 'Steve';
-console.log(exam.getBoy);
-console.dir(newHome);
-console.log(exam.newPassy);
+// exam.setBoy = 'Steve';
+// console.log(exam.getBoy);
+// console.dir(newHome);
+// console.log(exam.newPassy);
+
+
+
+const chopShop = {
+    stones: [
+        { name: 'Emerald', price: 1300, quantity: 4 },
+        { name: 'Dіamond', price: 2700, quantity: 3 },
+        { name: 'Sapphire', price: 1400, quantity: 7 },
+        { name: 'Rubyd', price: 8300, quantity: 2 },
+    ],
+    calcTotalPrice(stoneName) {
+        const { name, price, quantity } = this.stones.find(elem => elem.name === stoneName)
+        console.log({ name, price, quantity });
+        return price * quantity;
+    },
+
+};
+//console.log(chopShop.calcTotalPrice('Dіamond'));
+
+const chopShop2 = {
+    stones: [
+        { name: 'Щебінь', price: 1300, quantity: 4 },
+        { name: 'Пісок', price: 2700, quantity: 3 },
+        
+    ],
+};
+//console.log(chopShop.calcTotalPrice.call(chopShop2, 'Щебінь'))
+//console.log(chopShop.calcTotalPrice.apply(chopShop2, ['Щебінь']))
+
+////Example 2 - Телефонная книга
+////Выполните рефакторинг методов объекта phonebook, что бы код заработал
+
+const phonebook = {
+    contacts: [],
+    add(contact) {
+        const newContact = {
+            list: 'default',
+            ...contact,
+            id: this.generateId(),
+            createAt: this.getDate(),
+        };
+        this.contacts.push(newContact);
+        return this.contacts;
+    },
+    generateId() {
+        return '_' + Math.random().toString(36)
+    },
+    getDate() {
+        return Date.now();
+    },
+};
+
+console.log(
+    phonebook.add({
+        name: 'Mango',
+        email: 'mango@mail.com',
+        list: 'friends',
+    }),
+);
+
+console.log(
+    phonebook.add({
+        name: 'Paly',
+        email: 'poly@mail.com',
+       
+    }),
+);
+
+
+const calculator = {
+    a: 0,
+    b: 0,
+    c: 0,
+    toSet(a, b){
+        this.a = a;
+        this.b = b;
+    },
+    toSum(a, b) {
+        this.c = a + b;
+    }
+
+
+};
+
+// calculator.toSum(5, 3);
+// console.log(calculator.a);
+// console.log(calculator.c);
+
+//////конструктор объектов
+const constructor = {
+    toGet(a, b) {
+        this.a = a;
+        this.b = b;
+    }
+}
+//////добавили поля в объект
+constructor.toGet(1, 3);
+console.log(constructor);
+/////создали пустой объект
+const newOne = {};
+////добавили поля в новый пустой объект
+constructor.toGet.call(newOne, 2, 4);
+console.log(newOne);
+
+
+class Helen {
+    static number = 'two';
+    constructor({man, woman}) {
+        this.man = man;
+        this.woman = woman;
+    };
+    get getMan() {
+        return this.man
+    }
+    set setMan(newName) {
+        this.man = newName;
+    }
+};
+
+const people = new Helen({ man: 'Abraham', woman: 'Rebecca', })
+// console.log(people);
+// console.dir(Helen);
+// console.dir(people.getMan);
+people.man = 'Petro';
+// console.dir(people.getMan);
+
+
+const isObjj = {
+    toInst({ c, d }) {
+        this.c = c;
+        this.d = d;
+    }
+};
+// const newOb = new isObjj(1, 2);
+isObjj.toInst({ c:2, d:3 })
+console.log(isObjj);
+const tree = {};
+isObjj.toInst.call(tree, { c:5, d:6});
+console.log(tree);
+
 
 
