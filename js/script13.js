@@ -1,6 +1,9 @@
 // 'use strict'
 //////Экземпляры и классы
 
+/////Задачи. Модуль 5 Урок 2. Артем Рисіч. 08.03.2023
+///// Bitwise Not (~)
+
 class User {
     constructor(name, salary, overtime) {
         this.name = name;
@@ -75,11 +78,11 @@ const {
 class Car1{
     ////после статического метода не ставим точку с запятой
     static logInfo(carObj) {
-        console.log('Car.logInfo->carObj', carObj);
+        // console.log('Car.logInfo->carObj', carObj);
     }
     constructor({brand, model, price}={}) {
-        console.log('Выполняется конструктор');
-        console.log(this);
+        // console.log('Выполняется конструктор');
+        // console.log(this);
 
         this._brand = brand;
         this._model = model;
@@ -224,22 +227,21 @@ const chopShop = {
     ],
     calcTotalPrice(stoneName) {
         const { name, price, quantity } = this.stones.find(elem => elem.name === stoneName)
-        console.log({ name, price, quantity });
+        // console.log({ name, price, quantity });
         return price * quantity;
     },
 
 };
-//console.log(chopShop.calcTotalPrice('Dіamond'));
+// console.log(chopShop.calcTotalPrice('Dіamond'));
 
 const chopShop2 = {
     stones: [
         { name: 'Щебінь', price: 1300, quantity: 4 },
         { name: 'Пісок', price: 2700, quantity: 3 },
-        
     ],
 };
-//console.log(chopShop.calcTotalPrice.call(chopShop2, 'Щебінь'))
-//console.log(chopShop.calcTotalPrice.apply(chopShop2, ['Щебінь']))
+// console.log(chopShop.calcTotalPrice.call(chopShop2, 'Щебінь'))
+// console.log(chopShop.calcTotalPrice.apply(chopShop2, ['Щебінь']))
 
 ////Example 2 - Телефонная книга
 ////Выполните рефакторинг методов объекта phonebook, что бы код заработал
@@ -264,21 +266,21 @@ const phonebook = {
     },
 };
 
-console.log(
-    phonebook.add({
-        name: 'Mango',
-        email: 'mango@mail.com',
-        list: 'friends',
-    }),
-);
+// console.log(
+//     phonebook.add({
+//         name: 'Mango',
+//         email: 'mango@mail.com',
+//         list: 'friends',
+//     }),
+// );
 
-console.log(
-    phonebook.add({
-        name: 'Paly',
-        email: 'poly@mail.com',
+// console.log(
+//     phonebook.add({
+//         name: 'Paly',
+//         email: 'poly@mail.com',
        
-    }),
-);
+//     }),
+// );
 
 
 const calculator = {
@@ -309,12 +311,12 @@ const constructor = {
 }
 //////добавили поля в объект
 constructor.toGet(1, 3);
-console.log(constructor);
+// console.log(constructor);
 /////создали пустой объект
 const newOne = {};
 ////добавили поля в новый пустой объект
 constructor.toGet.call(newOne, 2, 4);
-console.log(newOne);
+// console.log(newOne);
 
 
 class Helen {
@@ -338,19 +340,173 @@ const people = new Helen({ man: 'Abraham', woman: 'Rebecca', })
 people.man = 'Petro';
 // console.dir(people.getMan);
 
+//////В класс добавляем счетчик экземпляров
+class Home{
+    static counter = 0;
+    static sum03(b) {
+        Home.counter += 1;
+        // console.log(this.counter)
+    }
+    constructor(a) {
+        this.a = a;
+        Home.sum03(b);
+    }
+}
+const examOwo = new Home(0);
+const examTwo = new Home(1);
+const examTree = new Home(2);
+// console.log(examTwo);
+// console.log(Home.b);
 
-const isObjj = {
-    toInst({ c, d }) {
-        this.c = c;
-        this.d = d;
+/////Задача
+class Bloger {
+    constructor({ name, age, numberOfPosts, topics })
+ {
+        this.name = name;
+        this.age = age;
+        this.numberOfPosts = numberOfPosts;
+        this.topics = topics;
+    }
+    getInfo() {
+return `User ${this.name} is ${this.age} year old and has ${this.numberOfPosts} post`;
+    }
+    updatePostCount(value) {
+        this.numberOfPosts += value;
+    }
+}
+
+const mango02 = new Bloger({
+    name: 'mango@gmail.com',
+    age: 24,
+    numberOfPosts: 20,
+    topics: ['tech', 'cooking'],
+});
+
+console.log(mango02);
+mango02.updatePostCount(1);
+console.log(mango02.numberOfPosts);
+console.log(mango02.getInfo());
+
+//////Задача 2. Сховище
+class Storage {
+    constructor(items) {
+        this.items = items;
+    }
+    getItems() {
+        return this.items;
+    }
+    addItem(item) {
+        const newAdd = this.items.indexOf(item);
+        if (!~newAdd) this.items.push(item);
+        return  this.items;
+    }
+    removeItem(itemRem) {
+        const newRem = this.items.indexOf(itemRem);
+        console.log(newRem);
+        if (!!~newRem) this.items.splice(newRem, 1);
+        return  this.items;
     }
 };
-// const newOb = new isObjj(1, 2);
-isObjj.toInst({ c:2, d:3 })
-console.log(isObjj);
-const tree = {};
-isObjj.toInst.call(tree, { c:5, d:6});
-console.log(tree);
+const storage = new Storage(['apple', 'lemon', 'orange']);
+////Смотрим массив
+console.log(storage.getItems());            ////['apple', 'lemon', 'orange']
+////Добавляем элемент в массив
+console.log(storage.addItem('plum'));       //// ['apple', 'lemon', 'orange', 'plum']
+////Удаляем элемент из массива
+console.log(storage.removeItem('plum'));    ////['apple', 'lemon', 'orange']
+////Смотрим массив
+console.log(storage);
+
+///// Задача 3. User
+class User02{
+    #login;
+    #email;
+    constructor({login, email}) {
+    this.#login = login;
+    this.#email = email;
+    }
+    get getLogin() {
+        return this.#login;
+    }
+    get getEmail() {
+        return this.#email;
+    }
+    set setLogin(newLogin) {
+        if(this.#login !== newLogin) this.#login = newLogin;
+    }
+    set setEmail(newEmail) {
+         if(this.#email !== newEmail) this.#email = newEmail;
+    }
+}
+
+const poly = new User02({
+    login: 'Poly',
+    email: 'poly@mail.com'
+})
+
+////console.log(poly.login); ////undefined
+////console.log(poly.email); ////undefined
+
+// {
+//     LOW: 'low',
+//     NORMAL: 'normal',
+//     HIGHT: 'hight',
+// }
+
+////Задача 4. Нотатки
+class Notes{
+    static Priority = {
+        LOW: 'low',
+        NORMAL: 'normal',
+        HIGHT: 'high',
+    };
+    constructor(items) {
+        this.items = items;
+        
+    }
+    addNote(note) {
+        console.log(this.items.some(itm=>itm.text===note.text))
+        if(!this.items.some(itm=>itm.text===note.text)) this.items.push(note);
+    }
+    removeNote(text) {
+        console.log(this.items.findIndex(({ text: findText }) => findText === text))
+    if (!!~this.items.findIndex(({ text: findText }) => findText === text)) {
+        const indx = this.items.findIndex(({ text: findText }) => findText === text)
+        this.items.splice(indx, 1); 
+        return;
+    }
+        return console.log('Немає такої!')
+        
+    }
+    updateNote(text, newPriority) {
+        const index = this.items.findIndex(({ text:newText }) => newText === text)
+        if (!!~index) {
+            this.items[index].priority=newPriority
+        }
+        }
+    }
+
+const myNotes = new Notes([]);
+console.log(myNotes);
+myNotes.addNote({ text: 'Моя перша замітка', priority: Notes.Priority.LOW });
+myNotes.addNote({ text: 'Друга замітка', priority: Notes.Priority.LOW });
+myNotes.addNote({ text: 'Третя замітка', priority: Notes.Priority.LOW });
+
+console.log(myNotes);
+
+// myNotes.removeNote('Четверта замітка');
+// myNotes.removeNote('Третя замітка');
+// console.log(myNotes);
+
+myNotes.updateNote('Третя замітка', Notes.Priority.HIGHT);
+
+
+
+
+
+
+
+
 
 
 
