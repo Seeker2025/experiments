@@ -358,7 +358,7 @@ const examTree = new Home(2);
 // console.log(examTwo);
 // console.log(Home.b);
 
-/////Задача
+/////Задача 1
 class Bloger {
     constructor({ name, age, numberOfPosts, topics })
  {
@@ -447,13 +447,12 @@ const poly = new User02({
 ////console.log(poly.login); ////undefined
 ////console.log(poly.email); ////undefined
 
-// {
-//     LOW: 'low',
-//     NORMAL: 'normal',
-//     HIGHT: 'hight',
-// }
-
 ////Задача 4. Нотатки
+
+////Напиши класс Notes который управляет коллекцией заметок в свойстве items.
+////Заметка - это объект со свойствами text и priority.Добавь классу статическое
+//// свойство Priority, в котором сохраняется объект с приоритетами.
+
 class Notes{
     static Priority = {
         LOW: 'low',
@@ -489,16 +488,57 @@ class Notes{
 const myNotes = new Notes([]);
 console.log(myNotes);
 myNotes.addNote({ text: 'Моя перша замітка', priority: Notes.Priority.LOW });
-myNotes.addNote({ text: 'Друга замітка', priority: Notes.Priority.LOW });
+myNotes.addNote({ text: 'Друга замітка', priority: Notes.Priority.NORMAL });
 myNotes.addNote({ text: 'Третя замітка', priority: Notes.Priority.LOW });
 
 console.log(myNotes);
 
-// myNotes.removeNote('Четверта замітка');
-// myNotes.removeNote('Третя замітка');
-// console.log(myNotes);
+////myNotes.removeNote('Четверта замітка'); ////    -1    Немає такої!
+myNotes.removeNote('Третя замітка');        //////   2
+console.log(myNotes);
+
 
 myNotes.updateNote('Третя замітка', Notes.Priority.HIGHT);
+
+////Задача 5
+class Toggle {
+    constructor(booleen) {
+        this.on = booleen;
+    }
+
+}
+const firstToggle = new Toggle({ isOpen: true });
+console.group('firstToggle');
+console.log(firstToggle.on);
+// firstToggle.toggle()
+console.groupEnd('firstToggle');
+
+
+
+class User03 {
+    constructor(name, salary, overtime) {
+        this.name = name;
+        this.salary = salary;
+        this.overtime = overtime;
+    }
+    paySalary() {
+        console.log('Parent', this.salary * this.overtime * 0.1 + this.salary);
+    }
+}
+const alex03 = new User03('Pete', 1000, 5);
+
+class Customer03 extends User03{
+    constructor(   name, salary, overtime, membership) {
+        super( name, salary, overtime );
+        this.membership = membership;
+    }
+    showInfo() {
+        super.paySalary();
+    }
+}
+const bob03 = new Customer03('Bob', 4000, 5, 'Basic');
+console.log(bob03);
+
 
 
 
