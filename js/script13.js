@@ -3,6 +3,7 @@
 
 /////Задачи. Модуль 5 Урок 2. Артем Рисіч. 08.03.2023
 ///// Bitwise Not (~)
+//////Псевдомасив arguments​
 
 class User {
     constructor(name, salary, overtime) {
@@ -496,7 +497,7 @@ console.log(myNotes);
 ////myNotes.removeNote('Четверта замітка'); ////    -1    Немає такої!
 myNotes.removeNote('Третя замітка');        //////   2
 console.log(myNotes);
-
+  
 
 myNotes.updateNote('Третя замітка', Notes.Priority.HIGHT);
 
@@ -513,40 +514,34 @@ console.log(firstToggle.on);
 // firstToggle.toggle()
 console.groupEnd('firstToggle');
 
-
-
-class User03 {
-    constructor(name, salary, overtime) {
-        this.name = name;
-        this.salary = salary;
-        this.overtime = overtime;
-    }
-    paySalary() {
-        console.log('Parent', this.salary * this.overtime * 0.1 + this.salary);
-    }
+//////Псевдомасив arguments​
+function sum02(a, b, c) {
+    // console.log(arguments);
+//////Преобразуем псевдо массив в нормальный массив
+    const args = Array.from(arguments);
+    console.log(args);
+    // return a + b + c;
 }
-const alex03 = new User03('Pete', 1000, 5);
+// console.log(sum02(1, 2, 3));
+sum02(1, 2, 3)
 
-class Customer03 extends User03{
-    constructor(   name, salary, overtime, membership) {
-        super( name, salary, overtime );
-        this.membership = membership;
-    }
-    showInfo() {
-        super.paySalary();
-    }
+
+
+
+
+
+
+
+
+
+//////arguments
+function sumNewTree(a, b, c) {
+    console.log(arguments);
+    const newArr = Array.from(arguments);
+    console.log(newArr);
+    return a + b + c;
+    
 }
-const bob03 = new Customer03('Bob', 4000, 5, 'Basic');
-console.log(bob03);
-
-
-
-
-
-
-
-
-
-
-
+console.log(sumNewTree(2, 3, 4));
+sumNewTree(2, 3, 4)
 
