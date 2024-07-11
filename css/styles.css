@@ -1,0 +1,54 @@
+.box_six{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgb(170, 178, 198);
+}
+div.class_col {
+    width: 85px;
+    height: 85px;
+    background-color: rgb(70, 69, 2);
+};
+
+.color{
+    color: red;
+}
+.bakground{
+    background-color: gold;
+}
+
+.bakground_green {
+    background-color: rgb(243, 117, 21);
+    color: rgb(244, 247, 63);
+}
+
+body {
+    background-color: gray;
+}
+
+.box {
+    width: 300px;
+    height: 150px;
+    background-color: rgb(214, 118, 0);
+}
+
+button.magic-btn{
+    padding: 15px 25px;
+}
+
+div.squ_many_colors {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+   
+    background-color: rgb(7, 18, 49);
+}
+
+.class__sq{
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+};
+
+

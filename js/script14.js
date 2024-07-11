@@ -127,6 +127,7 @@ imgNewRed.width = '450'; ////// Ширина. Не ставить 'px'!!!;
 /////Это бокс
 const sectionImgRef = document.querySelector('.images_examples');
 console.log(sectionImgRef);
+////Добавляем картинку в бокс
 document.body.append(imgNewRed);
 console.log(imgNewRed);
 
@@ -153,18 +154,13 @@ priceEl.classList.add('product_price');
 
 console.log(productEl);
 
-
-
-
 productEl.append(nameEl, descrEl, priceEl );
-
 
 console.log(productEl);
 
 const boxEll = document.createElement('box');
 boxEll.classList.add('peaxe');
 boxEll.textContent='Many Text';
-
 console.log(boxEll);
 
 const productOne = {
