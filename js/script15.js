@@ -65,11 +65,8 @@ const imgCatElem = document.querySelector('.hero__image');
 const magicBtn = document.querySelector('.js-magic-btn');
 
 magicBtn.addEventListener('click', () => {
-    
-    imgCatElem.src = 'img/cat02.jpg';
-
+        imgCatElem.src = 'img/cat02.jpg';
 });
-
 const colors = [
     { label: 'pink', color: '#E91E63' },
     { label: 'blue', color: '#2196F3' },
@@ -77,43 +74,90 @@ const colors = [
     { label: 'green', color: '#4CAF50' },
 ];
 
-// function mainField(colors) {
-//     return colors.map(itm => {
-//         const sque = document.createElement('div');
-//         sque.classList.add('class__sq');
-//         sque.style.backgroundColor = itm.color;
-//         sque.textContent = itm.label;
-
-//         return sque;
-//     });
-// }
-// const squManyColorsEll = document.querySelector('.squ_many_colors');
-// squManyColorsEll.append(...mainField(colors));
-// // console.log(mainField(colors));
-
-console.log(colors);
-
-
-
-// console.log(sixEll);
-
-function nanyColorsTwo(colors) {
+function mainField(colors) {
     return colors.map(itm => {
-        const col = document.createElement('div');
-        col.classList.add('class_col');
-        col.style.backgroundColor = itm.color;
-
-        return col;
-        
-    })
+        const sque = document.createElement('div');
+        sque.classList.add('class__sq');
+        sque.style.backgroundColor = itm.color;
+        sque.textContent = itm.label;
+        return sque;
+    });
 }
-const sixEll = document.querySelector('.box_six');
+const squManyColorsEll = document.querySelector('.squ_many_colors');
+squManyColorsEll.append(...mainField(colors));
+// console.log(mainField(colors));
 
-sixEll.append(...nanyColorsTwo(colors));
+const ulEll = document.createElement('ul');
+console.log(ulEll);
+// const liEl = document.createElement('li');
+
+const forAr1234 = function() {
+    const newArrTwo = [1, 2, 3, 4].map(itm => {
+        const liEl = document.createElement('li');
+        liEl.classList.add('class__for_li');
+        liEl.textContent = 'This is text content 033';
+    
+        return liEl;
+    });
+    return newArrTwo;
+}
+// console.log(newArrTwo);
+ulEll.append(...forAr1234());
 
 
-// console.log(sixEll);
-  console.log(nanyColorsTwo(colors));
+const isBoxSixEll = document.querySelector('.box_six');
+console.log(isBoxSixEll);
+isBoxSixEll.append(ulEll);
+
+
+const sevenEll = document.querySelector('.box_seven');
+
+
+const textFunFor = function () {
+    return `
+        <ul class="ul_class_ul">
+            <li class="list_gold">Text gold</li>
+            <li class="list_gold">Text gold</li>
+            <li class="list_gold">Text gold</li>
+            <li class="list_gold">Text gold</li>
+        </ul>
+       `;
+}
+
+console.log(textFunFor());
+sevenEll.insertAdjacentHTML('afterbegin', textFunFor());
+console.log(sevenEll);
+
+const att05 = [1, 2, 3,];
+
+
+console.log('a');
+
+
+const boo = function () {
+    return `
+    <ul class="Ul_for_Lee">
+        <li class="cl_Lee">Who is Mr.Lee?</li>
+        <li class="cl_Lee">Who is Mr.Lee?</li>
+        <li class="cl_Lee">Who is Mr.Lee?</li>
+    </ul>
+    `;
+};
+
+console.log(boo());
+
+sevenEll.insertAdjacentHTML('beforebegin', boo());
+
+
+
+
+
+
+
+
+
+
+
 
 
 
