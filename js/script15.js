@@ -130,10 +130,6 @@ console.log(sevenEll);
 
 const att05 = [1, 2, 3,];
 
-
-console.log('a');
-
-
 const boo = function () {
     return `
     <ul class="Ul_for_Lee">
@@ -149,8 +145,107 @@ console.log(boo());
 sevenEll.insertAdjacentHTML('beforebegin', boo());
 
 
+console.log('b');
+
+//////innerHTML выводим содержимое <article> вместе с тегами
+const article = document.querySelector(".article");
+console.log(article.innerHTML);
 
 
+const title = document.querySelector(".article .title");
+console.log(title.innerHTML);
+
+title.innerHTML = 'New and <span class="accent">improved</span> title';
+//////очищаем строку
+title.innerHTML = '';
+
+const text = document.querySelector(".article .text");
+console.log(text.innerHTML);
+
+const link = document.querySelector(".article .link");
+console.log(link.innerHTML);
+
+const list03 = document.querySelector(".list03");
+console.log(list03);
+
+const newTechnologies = ["React", "TypeScript", "Node.js"];
+console.log(newTechnologies);
+
+const markup = newTechnologies.map(item => {
+    return `<li class='item_new_adding'>${item}</li>
+    
+    `;
+}).join('');
+console.log(markup);
+
+list03.insertAdjacentHTML('beforeend', markup);
+list03.insertAdjacentHTML('beforebegin', `<h2 class='color'>Popular technologies</h2>`);
+
+const singleBtn = document.querySelector('#single');
+console.log(singleBtn);
+const handleClick = () => {
+    console.log("click event listener callback");
+} 
+singleBtn.addEventListener('click', handleClick);
+
+
+
+const multiBtn = document.querySelector("#multiple");
+
+const firstCallback = () => {
+  console.log("First callback!");
+};
+const secondCallback = () => {
+  console.log("Second callback!");
+};
+const thirdCallback = () => {
+  console.log("Third callback!");
+};
+
+multiBtn.addEventListener("click", firstCallback);
+multiBtn.addEventListener("click", secondCallback);
+multiBtn.addEventListener("click", thirdCallback);
+
+
+
+//////Добавляем слушатель на кнопку и удаляем слушатель 
+const addListenerBtn = document.querySelector('.js-add');
+const removeListenerBtn = document.querySelector('.js-remove');
+const btn = document.querySelector('.target-btn');
+
+const handleClick02 = () => {
+    console.log("click event listener callback");
+}
+addListenerBtn.addEventListener('click', () => {
+    btn.addEventListener('click', handleClick02);
+    console.log("click event listener was added to btn");
+});
+removeListenerBtn.addEventListener('click', () => {
+    btn.removeEventListener("click", handleClick02);
+    console.log("click event listener was removed from btn");
+}
+
+)
+////// смотрим объект event
+const button05 = document.querySelector(".btn05");
+const handleClick04 = event => {
+  console.log(event);
+};
+
+
+
+button05.addEventListener("click", handleClick04);
+
+const button03 = document.querySelector(".btn03");
+console.log(button03);
+
+const handleClick03 = (event) => {
+  console.log("event: ", event);
+  console.log("event type: ", event.type);
+  console.log("currentTarget: ", event.currentTarget);
+};
+
+button03.addEventListener('click', handleClick03);
 
 
 
