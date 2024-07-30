@@ -169,15 +169,13 @@ const list03 = document.querySelector(".list03");
 console.log(list03);
 
 const newTechnologies = ["React", "TypeScript", "Node.js"];
-console.log(newTechnologies);
+console.log(newTechnologies);////["React", "TypeScript", "Node.js"]
 
 const markup = newTechnologies.map(item => {
     return `<li class='item_new_adding'>${item}</li>
-    
-    `;
+     `;
 }).join('');
 console.log(markup);
-
 list03.insertAdjacentHTML('beforeend', markup);
 list03.insertAdjacentHTML('beforebegin', `<h2 class='color'>Popular technologies</h2>`);
 
@@ -188,10 +186,7 @@ const handleClick = () => {
 } 
 singleBtn.addEventListener('click', handleClick);
 
-
-
 const multiBtn = document.querySelector("#multiple");
-
 const firstCallback = () => {
   console.log("First callback!");
 };
@@ -201,12 +196,9 @@ const secondCallback = () => {
 const thirdCallback = () => {
   console.log("Third callback!");
 };
-
 multiBtn.addEventListener("click", firstCallback);
 multiBtn.addEventListener("click", secondCallback);
 multiBtn.addEventListener("click", thirdCallback);
-
-
 
 //////Добавляем слушатель на кнопку и удаляем слушатель 
 const addListenerBtn = document.querySelector('.js-add');
@@ -231,21 +223,76 @@ const button05 = document.querySelector(".btn05");
 const handleClick04 = event => {
   console.log(event);
 };
-
-
-
 button05.addEventListener("click", handleClick04);
 
 const button03 = document.querySelector(".btn03");
 console.log(button03);
-
 const handleClick03 = (event) => {
   console.log("event: ", event);
   console.log("event type: ", event.type);
   console.log("currentTarget: ", event.currentTarget);
+  console.log("target: ", event.target);
+};
+button03.addEventListener('click', handleClick03);
+
+const form = document.querySelector(".register-form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+//   const {
+//     elements: { username, password }
+//   } = event.currentTarget;
+    //       console.log(username.value, password.value);
+    
+    const {
+        elements: { username, password }
+       
+    }= event.currentTarget;
+    console.log(username, password);
+
+});
+
+//////  Короткі властивості
+const age = '47';
+const name = 'Pete';
+
+const objPressure = {
+    age,
+    name,
+};
+console.log(objPressure.age, objPressure.name);
+////// Класс и экземпляры
+class NewClass {
+    constructor(name, year) {
+        this.name =  name;
+        this.year = year;
+    }
+};
+const box02 = new NewClass('Abraham', 'Sarah');
+console.log(box02);
+const box03 = new NewClass('Isaaс', 'Rebecca');
+console.log(box03);
+
+
+
+
+
+
+
+
+class ThesePeople{
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        
+    }
 };
 
-button03.addEventListener('click', handleClick03);
+const peopleOne = new ThesePeople('Mark', 35);
+console.log(peopleOne);
+const peopleTwo = new ThesePeople('Jeff', 45);
+console.log(peopleTwo);
+
+
 
 
 
