@@ -1,5 +1,8 @@
 //////// DOM
 //////Примеры из урока Саши Репеты
+//////Події клавіатури
+
+
 import dataList from '../data/products.js';
 
 const productOne = {
@@ -272,6 +275,16 @@ console.log(box02);
 const box03 = new NewClass('Isaaс', 'Rebecca');
 console.log(box03);
 
+console.log('a');
+
+////// Події клавіатури
+/////В отличие от других событий, события клавиатуры обрабатываются на документе,
+/////а не на конкретном элементе.Объекты клавиатуры происходят из
+///// базового класса KeyboardEvent.
+document.addEventListener("keydown", event => {
+  console.log("key: ", event.key);
+  console.log("code: ", event.code);
+});
 
 
 
@@ -279,18 +292,57 @@ console.log(box03);
 
 
 
-class ThesePeople{
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-        
-    }
-};
 
-const peopleOne = new ThesePeople('Mark', 35);
-console.log(peopleOne);
-const peopleTwo = new ThesePeople('Jeff', 45);
-console.log(peopleTwo);
+
+const clearLogBtn = document.querySelector(".js-clear");
+const logList = document.querySelector(".log-list");
+let keypressCounter = 1;
+
+console.log(clearLogBtn)
+
+document.addEventListener("keydown", logMessage);
+document.addEventListener("keyup", logMessage);
+clearLogBtn.addEventListener("click", reset);
+
+function logMessage({ type, key, code }) {
+  const markup = `<div class="log-item">
+    <span class="chip">${keypressCounter}</span>
+    <ul>
+      <li><b>Event</b>: ${type}</li>
+      <li><b>Key</b>: ${key}</li>
+      <li><b>Code</b>: ${code}</li>
+    </ul>
+  </div>`;
+
+  logList.insertAdjacentHTML("afterbegin", markup);
+
+  if (type === "keyup") {
+    incrementKeypressCounter();
+  }
+}
+
+function reset() {
+  keypressCounter = 1;
+  logList.innerHTML = "";
+}
+
+function incrementKeypressCounter() {
+  keypressCounter += 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
