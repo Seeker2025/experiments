@@ -281,47 +281,39 @@ console.log('a');
 /////В отличие от других событий, события клавиатуры обрабатываются на документе,
 /////а не на конкретном элементе.Объекты клавиатуры происходят из
 ///// базового класса KeyboardEvent.
-document.addEventListener("keydown", event => {
-  console.log("key: ", event.key);
-  console.log("code: ", event.code);
-});
+// document.addEventListener("keydown", event => {
+//   console.log("key: ", event.key);
+//   console.log("code: ", event.code);
+//   console.log(event.type);
+// });
 
-
-
-
-
-
-
-
-
-const clearLogBtn = document.querySelector(".js-clear");
+const clearLogBtn03 = document.querySelector(".js-clear03");
 const logList = document.querySelector(".log-list");
 let keypressCounter = 1;
 
-console.log(clearLogBtn)
+// console.log(clearLogBtn03)
 
 document.addEventListener("keydown", logMessage);
-document.addEventListener("keyup", logMessage);
-clearLogBtn.addEventListener("click", reset);
+// document.addEventListener("keyup", logMessage);
+clearLogBtn03.addEventListener("click", reset);
 
-function logMessage({ type, key, code }) {
-  const markup = `<div class="log-item">
+     function logMessage(event) {
+        const markup = `<div class="log-item">
     <span class="chip">${keypressCounter}</span>
     <ul>
-      <li><b>Event</b>: ${type}</li>
-      <li><b>Key</b>: ${key}</li>
-      <li><b>Code</b>: ${code}</li>
+      <li><b>Event</b>:${event.type}</li>
+      <li><b>Key</b>:${event.key}</li>
+      <li><b>Code</b>:${event.code}</li>
     </ul>
   </div>`;
-
-  logList.insertAdjacentHTML("afterbegin", markup);
-
-  if (type === "keyup") {
+         
+  if (event.type === "keydown") {
     incrementKeypressCounter();
   }
+    return logList.insertAdjacentHTML("afterbegin", markup);
 }
-
-function reset() {
+ 
+ function reset() {
   keypressCounter = 1;
   logList.innerHTML = "";
 }
@@ -329,6 +321,9 @@ function reset() {
 function incrementKeypressCounter() {
   keypressCounter += 1;
 }
+
+
+ 
 
 
 
