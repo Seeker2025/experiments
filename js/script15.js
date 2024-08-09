@@ -287,45 +287,109 @@ console.log('a');
 //   console.log(event.type);
 // });
 
-const clearLogBtn03 = document.querySelector(".js-clear03");
-const logList = document.querySelector(".log-list");
-let keypressCounter = 1;
 
-// console.log(clearLogBtn03)
+//////Пример из конспекта. Модуль 6. Події клавіатури
+// const clearLogBtn03 = document.querySelector(".js-clear03");
+// const logList = document.querySelector(".log-list");
+// let keypressCounter = 1;
 
-document.addEventListener("keydown", logMessage);
-// document.addEventListener("keyup", logMessage);
-clearLogBtn03.addEventListener("click", reset);
+// // console.log(clearLogBtn03)
 
-     function logMessage(event) {
-        const markup = `<div class="log-item">
-    <span class="chip">${keypressCounter}</span>
-    <ul>
-      <li><b>Event</b>:${event.type}</li>
-      <li><b>Key</b>:${event.key}</li>
-      <li><b>Code</b>:${event.code}</li>
-    </ul>
-  </div>`;
+// document.addEventListener("keydown", logMessage);
+// // document.addEventListener("keyup", logMessage);
+// clearLogBtn03.addEventListener("click", reset);
+
+//      function logMessage(event) {
+//         const markup = `<div class="log-item">
+//     <span class="chip">${keypressCounter}</span>
+//     <ul>
+//       <li><b>Event</b>:${event.type}</li>
+//       <li><b>Key</b>:${event.key}</li>
+//       <li><b>Code</b>:${event.code}</li>
+//     </ul>
+//   </div>`;
          
-  if (event.type === "keydown") {
-    incrementKeypressCounter();
-  }
-    return logList.insertAdjacentHTML("afterbegin", markup);
-}
+//   if (event.type === "keydown") {
+//     incrementKeypressCounter();
+//   }
+//     return logList.insertAdjacentHTML("afterbegin", markup);
+// }
  
- function reset() {
-  keypressCounter = 1;
-  logList.innerHTML = "";
-}
+//  function reset() {
+//   keypressCounter = 1;
+//   logList.innerHTML = "";
+// }
 
-function incrementKeypressCounter() {
-  keypressCounter += 1;
-}
+// function incrementKeypressCounter() {
+//   keypressCounter += 1;
+// }
 
 
  
 
 
+
+
+const thisIsBtnForClear = document.querySelector(".btn_clear_big");
+console.log(thisIsBtnForClear);
+const block = document.querySelector(".this_is_box");
+
+// const numPlus = document.querySelector(".numPlus");
+
+console.log(block);
+
+let newNum = 0;
+
+
+document.addEventListener('keydown', thisFunForKey);
+function thisFunForKey() {
+    funClear();
+    numPlusOne();
+    const thisTexxt = `
+        <p style="color: red; background: black;">text</p>
+
+        ${newNum}
+        `;
+    // console.log(keyEvent.key);
+    return block.insertAdjacentHTML('afterbegin', thisTexxt)
+}
+
+thisIsBtnForClear.addEventListener('click', funClear);
+function funClear() {
+    block.innerHTML = '';
+}
+
+
+
+
+
+// const btnPlus = document.querySelector(".btn_plus");
+// console.log(btnPlus);
+// btnPlus.addEventListener('click',funNumPlus);
+
+function numPlusOne() {
+    newNum += 1;
+    return newNum;
+}
+
+// function funNumPlus() {
+//     numPlusOne()
+//     const numPlusTwo = `
+//     text 022 ${new000}
+//         `
+// return numPlus.insertAdjacentHTML('afterbegin', numPlusTwo)
+// },
+
+
+
+////// Клавіші-модифікатори
+    document.addEventListener('keydown', (event) => {   
+//event.preventDefault();//////предотвращает сочетание клавиш по умолчанию
+// console.log(event.ctrlKey);//// при нажатии Ctrl возвращает false или true
+// console.log(event.altKey);//// при нажатии Alt возвращает false или true
+//onsole.log(event.code);//// код клавиши
+console.log(event.metaKey);//// код клавиши
+    })
 
 
 
