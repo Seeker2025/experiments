@@ -391,6 +391,99 @@ function numPlusOne() {
 console.log(event.metaKey);//// код клавиши
     })
 
+/////Формы
+const formRef = document.querySelector('.js-register-form');
+console.log(formRef);
+formRef.addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log(event);
+
+    const nameRef = document.querySelector('input[name="name"]');
+    const emailRef = document.querySelector('input[name="email"]');
+    // console.log(nameRef.value); //////  Vova
+    // console.log(emailRef.value);//////  myprojectonclouddrive@gmail.com
+
+ /////event.target Это сама форма. Элемент на котором произошло событие.
+ ///// Полная замена this
+
+    // console.log(event.target);
+    // console.log(Array.isArray(event.target.elements)); ////false
+
+    
+    // console.log(event.target.elements.name.value);
+ ////радиокнопка
+    // console.log(event.target.elements.subscription.value);
+
+//// Нормальный способ. 
+    const { subscription } = event.target.elements;
+    const { name } = event.target.elements;
+////    console.log(subscription.value);
+////    console.log(name.value);
+///// Создаём объект. Это нормальная отправка формы
+    const data = {
+        name,
+        subscription,
+       
+    };
+    ////    console.log(data);
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    console.log(4);
+    // console.log(form);
+    console.log(formData);
+    const isObg = {};
+    formData.forEach((value, key) => {
+        
+        isObg[key] = value;
+
+    });
+    console.log(isObg);
+
+})
+
+// const arr = [1, 2];
+// console.log(Array.isArray(arr));
+
+const inputRef = document.querySelector('.js-input');
+const licenseRef = document.querySelector('.js-license');
+const btnRef = document.querySelector('.js-button');
+const spanRef = document.querySelector('.js-button > span');
+// console.log(inputRef);
+// console.log(licenseRef);
+// console.log(btnRef);
+// console.log(spanRef);
+
+////// Input event
+// inputRef.addEventListener('input', (event) => {
+//     console.log(event.target.value);
+// });
+// ///// Check box
+// licenseRef.addEventListener('change', (event) => {
+//     console.log(event.target.checked);
+// });
+
+//  inputRef.addEventListener('input', (event) => {
+//      const inputValue = event.target.value;
+//      licenseRef.addEventListener('change', (event) => {
+//          btnRef.disabled = !event.target.checked;
+//          btnRef.textContent = "Register as" + " " + inputValue;
+
+//  });
+// });
+
+///// Focus
+inputRef.addEventListener('focus', (event) => {
+   event.target.style.border = '5px solid red';
+   event.target.style.background = 'gold';
+  
+});
+
+///// Blur Событие обратное Focus
+inputRef.addEventListener('blur', (event) => {
+   event.target.style.border = '5px solid green';
+});
+
 
 
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>MyExp</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -54,8 +55,44 @@
     color: gold;
 }
 
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgb(49, 23, 23);
+    overflow: auto;
+}
+.modal-content{
+    background-color: aquamarine;
+    width: 70%;
+    margin: 10% auto;
+    padding: 2%;
+    border: 10px solid black;
+}
+.close{
+    float: right;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+.red{ color: red; }
+.green{ color:rgb(43, 124, 5)}
 
     </style>
+
 </head>
 <body>
     <h1 class="heading main_title heading02">Main Title</h1>
@@ -155,6 +192,101 @@ width ="320"
 <!-- <button type="button" class="btn_clear_big">Plus</button> -->
  <div class="this_is_box">yyy</div>
 
+<!-- Forms -->
+    <form form class='js-register-form'>
+        <div role='group'>
+<label>
+    Name
+    <input name="name" type="text" autocomplete="off" placeholder="Hello Vova">
+</label>
+
+<labael>
+    Email
+    <input name="email" type="email" autocomplete="off">
+</labael>
+
+<labael>
+    Password
+    <input name="password" type="password" autocomplete="off">
+</labael>
+        
+        </div>
+
+        <div role="group">
+            <b>Select plan:</b>
+<label>
+<input type="radio" name="subscription" value="free">
+Free
+</label>
+
+<label>
+<input type="radio" name="subscription" value="basic">
+Basic
+</label>
+
+<label>
+<input type="radio" name="subscription" value="pro">
+Pro
+</label>
+
+<button type="submit">Register</button>
+</div>
+
+</form>
+<h1>Inputs events</h1>
+
+<label>
+    User Name
+    <input type="text" class="js-input" />
+</label>
+<!-- checked -->
+<p>
+    <label>
+       License agreement
+        <input type="checkbox" class="js-license" />
+    </label>
+</p>
+<button type="checkbox" class="js-button">
+    Register as <span>Guest</span>
+</button>
+
+
+
+
+<!-- Modal window -->
+  
+<h1>Modal simple windows</h1>
+<button id="myModalBtn">Open modal</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times</span>
+            <h2> Modal window</h2>
+            <p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            </p>
+        </div>
+    </div>
+
+
+
+<!-- Menu -->
+
+ <div id="root">
+    <button id="openMenu">Open menu</button>
+ </div>
+
+
+    <h3 id="title03" class="red title_h3 class_title">Title for list</h3>
+    <ul class="list03">
+        <li class="list-item_03">item 01</li>
+        <li class="list-item_03">item 02</li>
+        <li class="list-item_03">item 03</li>
+    </ul>
+
+
+
+
 
 
 
@@ -189,7 +321,9 @@ width ="320"
     <!-- <script src="js/script13.js" type="module"></script> -->
     <!-- DOM BOM -->
     <!-- <script src="js/script14.js" type="module"></script> -->
-    <script src="js/script15.js" type="module"></script>
+    <!-- <script src="js/script15.js" type="module"></script> -->
+    <!-- DOM BOM Modalka-->
+    <script src="js/script16.js" type="module"></script>
 
 </body>
 </html>
