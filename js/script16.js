@@ -30,7 +30,8 @@ function onBackDrop(event) {
       if (event.target === modalRef) {
           modalRef.style.display = 'none';
 
-     }
+    }
+    
 };
 
 ///// Закрываем модалку нажатием "Escape"
@@ -56,6 +57,7 @@ window.removeEventListener('click', onBackDrop);
 const drinks = ['Vodka', 'Beer', 'Rum', 'Whiskey'];
 const rootRef = document.querySelector('#root');
 const btnRef02 = document.querySelector('#openMenu');
+btnRef02.textContent = 'Close Menu ';
 
 // console.log(rootRef);
 // console.log(btnRef02);
@@ -79,8 +81,9 @@ function createLi(text) {
 
 const ul = document.createElement('ul');
 
+
 ul.classList.add('list');
-ul.classList.add('hide');
+// ul.classList.add('hide');
 
 const menu = drinks.map((li) => {
     return createLi(li);
@@ -92,16 +95,25 @@ ul.append(...menu);
 rootRef.append(ul);
 
 btnRef02.addEventListener('click', onBtn);
+
+console.log('s');
+
+console.log(rootRef);
     
     
     
-function onBtn(event){
-    if (ul.classList.contains('show')) {
-        event.target.textContent = 'Close menu';
+function onBtn(event) {
+    ul.classList.toggle('hide');
+    if (ul.classList.contains('hide')) {
+        event.target.textContent = 'Open';
         return;
     }
-    event.target.textContent = 'Open menu';
+    event.target.textContent = 'Close';
 }
+
+
+
+
 
 
 
@@ -129,6 +141,89 @@ console.log(h3Ref.classList.contains('title_h3')); //////true
 h3Ref.classList.replace('red', 'green')
 ///// устанавливаем атрибут
 h3Ref.setAttribute('alt', '_black');
+
+//////Работает только для картинок и ссылок
+
+//// берём по атрибуту
+//// добавляем атрибут к ссылке
+const aRef = document.querySelector('[href="google.com"]');
+aRef.target = 'blank';
+//// если нужно взять атрибут
+console.log(aRef.getAttribute('href'));
+console.log(aRef);
+
+const imgCatRef = document.querySelector('[src="img/cat02.jpg"]');
+console.log(imgCatRef);
+imgCatRef.width = 150;
+imgCatRef.alt = 'cat walks';
+
+////// заменяем или добавляем текст текст
+const h4Ref = document.querySelector('.title_h4');
+h4Ref.innerHTML='Peace';
+h4Ref.innerHTML = '<span style="color: magenta">Kebab menu</span>';
+
+const h4RefOther = document.querySelector('.title_h4_other');
+h4RefOther.innerHTML = ''; 
+h4RefOther.insertAdjacentHTML('beforeend',
+    '<span style="color: gold">Other text for not everyone</span>'
+);
+console.log(h4RefOther);
+
+////// создаём элемент <а>
+const aRef04 = document.createElement('a');
+aRef04.setAttribute('href', 'http://translate.google.com');
+aRef04.target = '_black';
+aRef04.classList.add('super_link');
+aRef04.innerText = 'Translate';
+console.log(aRef04);
+////// добавляем <а> в <div>
+const divRef = document.querySelector('.div_for_a');
+divRef.append(aRef04);
+console.log(divRef);
+
+////// создаём элемент <img>
+const imgNewRef = document.createElement('img');
+imgNewRef.src = "img/cat02.jpg";
+imgNewRef.alt = 'family';
+imgNewRef.width = '250';
+////// добавляем <а> в <div>
+divRef.append(imgNewRef);
+console.log(imgNewRef.src);
+
+//////Выбираем все картинки
+const aLotOfImgRef = document.querySelectorAll('img'); //////NodeList
+console.log(aLotOfImgRef);
+////// Выбираем все картинки и устанавливае один размер
+aLotOfImgRef.forEach((el) => {
+    // el.width = '100';
+});
+////// hover
+const sqaRef = document.querySelector('.square');
+console.log(sqaRef);
+/////// добавляем класс
+sqaRef.addEventListener('mouseenter', (event) => {
+    event.target.classList.add('square02');
+});
+////// снимаем класс
+sqaRef.addEventListener('mouseleave',(event) => {
+    event.target.classList.remove('square02');
+})
+
+////// Focus, Blur
+const blurRef = document.querySelector('.input_for_blur');
+blurRef.addEventListener('focus', (event) => {
+    event.target.style.background = 'gold';
+});
+
+blurRef.addEventListener('blur', (event) => {
+    event.target.style.background = 'red';
+    event.target.style.border = '3px solid gold';
+});
+
+
+
+
+
     
 
 
