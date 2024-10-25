@@ -278,8 +278,8 @@ console.log(box03);
 console.log('a');
 
 ////// Події клавіатури
-/////В отличие от других событий, события клавиатуры обрабатываются на документе,
-/////а не на конкретном элементе.Объекты клавиатуры происходят из
+/////В отличие от других событий, события клавиатуры обрабатываются,
+/////происходят из на документе, а не на конкретном элементе.Объекты клавиатуры 
 ///// базового класса KeyboardEvent.
 // document.addEventListener("keydown", event => {
 //   console.log("key: ", event.key);
@@ -371,7 +371,6 @@ function numPlusOne() {
     newNum += 1;
     return newNum;
 }
-
 // function funNumPlus() {
 //     numPlusOne()
 //     const numPlusTwo = `
@@ -476,9 +475,8 @@ const spanRef = document.querySelector('.js-button > span');
 inputRef.addEventListener('focus', (event) => {
    event.target.style.border = '5px solid red';
    event.target.style.background = 'gold';
-  
+ 
 });
-
 ///// Blur Событие обратное Focus
 inputRef.addEventListener('blur', (event) => {
    event.target.style.border = '5px solid green';

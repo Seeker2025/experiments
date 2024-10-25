@@ -1,5 +1,6 @@
 //////// DOM
-//////Модалка
+//////Модалка плохая!
+//////
 
 const btnRef = document.querySelector('#myModalBtn');
 const modalRef = document.querySelector('#myModal');
@@ -36,7 +37,6 @@ function onBackDrop(event) {
 
 ///// Закрываем модалку нажатием "Escape"
 window.addEventListener('keydown', onEscape);
-
 function onEscape(event) {
     if (event.code === "Escape") {
         modalRef.style.display = 'none';
@@ -47,62 +47,44 @@ window.removeEventListener('click', onBackDrop);
 };
 
 
+////// Нажатие кнопки открываем и закрываем меню. На кнопке меняется
+////// надпись open/close
 // <ul>
  //     <li><a href ="/vodka">Vodka</a></li>
  //     <li><a href ="/beer">Beer</a></li>
  //     <li><a href ="/rum">Rum</a></li>
  //     <li><a href ="/whiskey">Whiskey</a></li>
 // </ul>
-
 const drinks = ['Vodka', 'Beer', 'Rum', 'Whiskey'];
 const rootRef = document.querySelector('#root');
 const btnRef02 = document.querySelector('#openMenu');
 btnRef02.textContent = 'Close Menu ';
-
 // console.log(rootRef);
 // console.log(btnRef02);
-
 function createLi(text) {
     const li = document.createElement('li');
     const a = document.createElement('a');
-
     li.classList.add('list_item');
     a.classList.add('list_item--link');
-
     a.href = '/' + text.toLowerCase();
     a.target = '_blank';
     a.textContent = text;
-
     li.append(a);
-
     return li;
-    
-};
-
+ };
 const ul = document.createElement('ul');
-
-
 ul.classList.add('list');
 // ul.classList.add('hide');
-
 const menu = drinks.map((li) => {
     return createLi(li);
 });
-
 console.log(menu);
-
 ul.append(...menu);
 rootRef.append(ul);
-
 btnRef02.addEventListener('click', onBtn);
-
 console.log('s');
-
 console.log(rootRef);
-    
-    
-    
-function onBtn(event) {
+ function onBtn(event) {
     ul.classList.toggle('hide');
     if (ul.classList.contains('hide')) {
         event.target.textContent = 'Open';
@@ -161,7 +143,6 @@ imgCatRef.alt = 'cat walks';
 const h4Ref = document.querySelector('.title_h4');
 h4Ref.innerHTML='Peace';
 h4Ref.innerHTML = '<span style="color: magenta">Kebab menu</span>';
-
 const h4RefOther = document.querySelector('.title_h4_other');
 h4RefOther.innerHTML = ''; 
 h4RefOther.insertAdjacentHTML('beforeend',
