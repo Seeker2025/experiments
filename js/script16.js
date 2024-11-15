@@ -133,7 +133,7 @@ aRef.target = 'blank';
 //// если нужно взять атрибут
 console.log(aRef.getAttribute('href'));
 console.log(aRef);
-
+//// селектор атрибута
 const imgCatRef = document.querySelector('[src="img/cat02.jpg"]');
 console.log(imgCatRef);
 imgCatRef.width = 150;
@@ -152,8 +152,10 @@ console.log(h4RefOther);
 
 ////// создаём элемент <а>
 const aRef04 = document.createElement('a');
+///// добавляем атрибуты
 aRef04.setAttribute('href', 'http://translate.google.com');
 aRef04.target = '_black';
+///// добавляем класс
 aRef04.classList.add('super_link');
 aRef04.innerText = 'Translate';
 console.log(aRef04);

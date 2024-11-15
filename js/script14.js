@@ -1,10 +1,7 @@
 import product from '../data/products.js';
-//////импорт, только есть есть type="module"
+//////импорт, есть type="module"
 /////'DOM'
 /////'BOM'
-
-
-
 
 //////выбираем по классу. Так можно выбрать любой селектор. Если выбираем по тегу li,
 //////то найдёт первый тег li. Если ничего не нашо то null
@@ -108,7 +105,7 @@ console.log(h5);
 h5.style.color = 'gold';
 h5.style.textDecoration = 'underline';
 h5.style.fontSize = '55px';
-
+//////создаём элемент
 const aNewRef = document.createElement('a');
 aNewRef.setAttribute('href', 'https://translate.google.com');
 aNewRef.target = '_blank';
@@ -122,8 +119,6 @@ console.log(imgNewRed);
 imgNewRed.alt = 'Maksakova';
 imgNewRed.width = '450'; ////// Ширина. Не ставить 'px'!!!;
 
-
-
 /////Это бокс
 const sectionImgRef = document.querySelector('.images_examples');
 console.log(sectionImgRef);
@@ -132,9 +127,6 @@ document.body.append(imgNewRed);
 console.log(imgNewRed);
 
 console.log('a');
-
-
-
 console.log(product);
 
 const productEl = document.createElement('article');

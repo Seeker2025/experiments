@@ -248,7 +248,6 @@ form.addEventListener("submit", (event) => {
     
     const {
         elements: { username, password }
-       
     }= event.currentTarget;
     console.log(username, password);
 
@@ -263,6 +262,7 @@ const objPressure = {
     name,
 };
 console.log(objPressure.age, objPressure.name);
+
 ////// Класс и экземпляры
 class NewClass {
     constructor(name, year) {
@@ -481,35 +481,4 @@ inputRef.addEventListener('focus', (event) => {
 inputRef.addEventListener('blur', (event) => {
    event.target.style.border = '5px solid green';
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
